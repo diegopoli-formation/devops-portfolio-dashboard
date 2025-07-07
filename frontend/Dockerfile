@@ -3,9 +3,8 @@ FROM node:14 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-# Ajoute TypeScript explicitement (utile pour CI/CD)
-RUN npm install --save-dev typescript
 COPY . .
+RUN echo "--- Contenu de /app/src ---" && ls -l /app/src && cat /app/src/index.tsx
 RUN npm run build
 
 # Serve stage
