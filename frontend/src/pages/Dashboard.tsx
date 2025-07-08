@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+type Deployment = {
+  id: string;
+  status: string;
+  timestamp: string;
+};
+
 const Dashboard = () => {
-    const [deployments, setDeployments] = useState([]);
+    const [deployments, setDeployments] = useState<Deployment[]>([]);
 
     useEffect(() => {
         const fetchDeployments = async () => {
