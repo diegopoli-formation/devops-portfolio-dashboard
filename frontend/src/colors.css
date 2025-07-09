@@ -1,0 +1,10 @@
+/* 🎨 Palette de couleurs globale */
+
+:root {
+  --color-primary: #1D4ED8;
+  --color-secondary: #7C3AED;
+  --color-accent: #10B981;
+  --color-neutral: #F3F4F6;
+  --color-background: #F9FAFB;
+  --color-text: #111827;
+}

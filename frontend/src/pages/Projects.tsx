@@ -1,4 +1,5 @@
 import React from 'react';
+import './Projects.module.css';
 
 const Projects = () => {
     const devOpsTools = [
