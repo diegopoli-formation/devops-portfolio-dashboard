@@ -1,0 +1,23 @@
+.container {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+h1 {
+  color: #60a5fa;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid #3b82f6;
+}

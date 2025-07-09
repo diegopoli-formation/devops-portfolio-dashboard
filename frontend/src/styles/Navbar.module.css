@@ -1,0 +1,44 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background-color: #111827;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.logo span {
+  color: #3b82f6;
+}
+
+.navLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.navLinks li {
+  margin: 1rem 0;
+}
+
+.navLinks a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover,
+.navLinks a.active {
+  color: #3b82f6;
+  font-weight: bold;
+}

@@ -1,0 +1,12 @@
+.container {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}

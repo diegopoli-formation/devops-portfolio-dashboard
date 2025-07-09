@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Dashboard.module.css';
+import '../styles/Dashboard.module.css';
 
 type Deployment = {
   id: string;
