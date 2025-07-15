@@ -1,10 +1,44 @@
-/* 🎨 Palette de couleurs globale */
-
+/* 🎨 Palette de couleurs moderne pour portfolio DevOps */
 :root {
-  --color-primary: #1D4ED8;
-  --color-secondary: #7C3AED;
-  --color-accent: #10B981;
-  --color-neutral: #F3F4F6;
-  --color-background: #F9FAFB;
-  --color-text: #111827;
+  /* Couleurs principales */
+  --color-primary: #2563eb;      /* Bleu vif pour les éléments principaux */
+  --color-primary-dark: #1d4ed8; /* Bleu foncé pour les états hover/active */
+  --color-secondary: #1e293b;    /* Gris foncé pour les textes et éléments secondaires */
+  --color-accent: #0ea5e9;       /* Bleu clair pour les accents et les effets */
+  
+  /* Couleurs d'arrière-plan */
+  --color-bg-primary: #ffffff;   /* Blanc pour le fond principal */
+  --color-bg-secondary: #f8fafc; /* Gris très clair pour les sections alternées */
+  --color-bg-dark: #0f172a;      /* Bleu nuit pour les sections sombres */
+  
+  /* Couleurs de texte */
+  --color-text: #1e293b;         /* Gris foncé pour le texte principal */
+  --color-text-light: #64748b;   /* Gris moyen pour le texte secondaire */
+  --color-text-inverse: #f8fafc; /* Blanc cassé pour texte sur fond sombre */
+  
+  /* Couleurs d'état */
+  --color-success: #10b981;      /* Vert pour les succès */
+  --color-warning: #f59e0b;      /* Orange pour les avertissements */
+  --color-error: #ef4444;        /* Rouge pour les erreurs */
+  
+  /* Dégradés */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--color-secondary) 0%, #0f172a 100%);
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Bordures */
+  --border-radius-sm: 0.25rem;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 9999px;
+  
+  /* Transitions */
+  --transition: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  --transition-fast: all 0.15s ease;
 }
