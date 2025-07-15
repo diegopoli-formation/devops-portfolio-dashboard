@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from '../styles/Projects.module.css';
@@ -95,19 +95,25 @@ const Projects: React.FC = () => {
 
   // Filtrage des projets
   useEffect(() => {
-    if (activeFilter === 'Tous') {
-      setFilteredProjects(projectsData);
-    } else {
-      setFilteredProjects(projectsData.filter(project => project.category === activeFilter));
-    }
+    setIsLoading(true);
     
-    // Simuler un chargement
+    // Filtrer les projets de manière synchrone
+    const filtered = activeFilter === 'Tous' 
+      ? projectsData 
+      : projectsData.filter(project => project.category === activeFilter);
+    
+    // Mettre à jour les projets filtrés
+    setFilteredProjects(filtered);
+    
+    // Désactiver le chargement après un court délai pour éviter le clignotement
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 100);
     
-    return () => clearTimeout(timer);
-  }, [activeFilter]);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [activeFilter, projectsData]);
 
   // Animation au défilement
   useEffect(() => {
@@ -185,10 +191,10 @@ const Projects: React.FC = () => {
         ))}
       </div>
 
-      {isLoading ? (
+      {isLoading && filteredProjects.length === 0 ? (
         <div className={styles.projectsGrid}>
           {[1, 2, 3].map((item) => (
-            <div key={item} className={styles.loadingCard}>
+            <div key={`loading-${item}`} className={styles.loadingCard}>
               <div style={{ height: '200px', background: '#e0e0e0' }}></div>
               <div style={{ padding: '1.5rem' }}>
                 <div style={{ height: '24px', width: '80%', background: '#e0e0e0', marginBottom: '1rem' }}></div>
