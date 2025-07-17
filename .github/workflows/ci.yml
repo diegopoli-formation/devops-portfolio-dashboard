@@ -2,12 +2,12 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [main, dev]
   pull_request:
-    branches: [ main, dev ]
+    branches: [main, dev]
 
 env:
-  NODE_VERSION: '20.x'
+  NODE_VERSION: "20.x"
 
 jobs:
   frontend:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: ./frontend/package-lock.json
 
       - name: Install dependencies
@@ -78,7 +78,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: ./backend/package-lock.json
 
       - name: Install dependencies

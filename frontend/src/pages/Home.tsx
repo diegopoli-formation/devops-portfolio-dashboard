@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import styles from '../styles/Home.module.css';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import styles from "../styles/Home.module.css";
 
 // Composant pour les cartes de statistiques
-const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ value, label, delay }) => {
+const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({
+  value,
+  label,
+  delay,
+}) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -14,7 +18,7 @@ const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ v
 
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      controls.start("visible");
     }
   }, [controls, inView]);
 
@@ -25,17 +29,17 @@ const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ v
       initial="hidden"
       animate={controls}
       variants={{
-        visible: { 
-          opacity: 1, 
+        visible: {
+          opacity: 1,
           y: 0,
-          transition: { 
-            duration: 0.5, 
-            delay: delay * 0.1 
-          } 
+          transition: {
+            duration: 0.5,
+            delay: delay * 0.1,
+          },
         },
-        hidden: { 
-          opacity: 0, 
-          y: 20 
+        hidden: {
+          opacity: 0,
+          y: 20,
         },
       }}
     >
@@ -66,7 +70,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     if (heroInView) {
-      heroControls.start('visible');
+      heroControls.start("visible");
     }
   }, [heroControls, heroInView]);
 
@@ -80,22 +84,22 @@ const Home: React.FC = () => {
             initial="hidden"
             animate={heroControls}
             variants={{
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
-                transition: { 
+                transition: {
                   duration: 0.8,
                   staggerChildren: 0.2,
-                  delayChildren: 0.3
-                } 
+                  delayChildren: 0.3,
+                },
               },
-              hidden: { 
-                opacity: 0, 
-                y: 30 
+              hidden: {
+                opacity: 0,
+                y: 30,
               },
             }}
           >
-            <motion.h1 
+            <motion.h1
               className={styles.heroTitle}
               variants={{
                 visible: { opacity: 1, y: 0 },
@@ -105,19 +109,19 @@ const Home: React.FC = () => {
               Développeur DevOps &<br />
               <span className={styles.highlight}>Architecte Cloud</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className={styles.heroSubtitle}
               variants={{
                 visible: { opacity: 1, y: 0 },
                 hidden: { opacity: 0, y: 20 },
               }}
             >
-              Je conçois, développe et déploie des solutions cloud évolutives et sécurisées
-              pour transformer vos idées en réalité technique.
+              Je conçois, développe et déploie des solutions cloud évolutives et
+              sécurisées pour transformer vos idées en réalité technique.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className={styles.heroButtons}
               variants={{
                 visible: { opacity: 1, y: 0 },
@@ -133,7 +137,7 @@ const Home: React.FC = () => {
             </motion.div>
           </motion.div>
         </div>
-        
+
         <div className={styles.heroBackground}>
           <div className={styles.heroOverlay}></div>
         </div>
@@ -155,7 +159,7 @@ const Home: React.FC = () => {
       <section className={styles.aboutSection} ref={aboutRef}>
         <div className="container">
           <div className={styles.aboutContent}>
-            <motion.div 
+            <motion.div
               className={styles.aboutText}
               initial={{ opacity: 0, x: -50 }}
               animate={aboutInView ? { opacity: 1, x: 0 } : {}}
@@ -163,24 +167,30 @@ const Home: React.FC = () => {
             >
               <h2>À propos de moi</h2>
               <p>
-                Passionné par le DevOps et les technologies cloud, je mets mon expertise au service de vos projets 
-                pour vous offrir des solutions robustes, évolutives et sécurisées. Avec une approche centrée 
-                sur l'automatisation et l'amélioration continue, je vous accompagne dans la transformation 
-                de votre infrastructure et de vos processus de développement.
+                Passionné par le DevOps et les technologies cloud, je mets mon
+                expertise au service de vos projets pour vous offrir des
+                solutions robustes, évolutives et sécurisées. Avec une approche
+                centrée sur l'automatisation et l'amélioration continue, je vous
+                accompagne dans la transformation de votre infrastructure et de
+                vos processus de développement.
               </p>
               <Link to="/about" className={styles.aboutLink}>
                 En savoir plus sur mon parcours <span>→</span>
               </Link>
             </motion.div>
-            <motion.div 
+            <motion.div
               className={styles.aboutSkills}
               ref={skillsRef}
               initial={{ opacity: 0, x: 50 }}
-              animate={skillsInView ? { 
-                opacity: 1, 
-                x: 0,
-                transition: { duration: 0.6, delay: 0.2 }
-              } : {}}
+              animate={
+                skillsInView
+                  ? {
+                      opacity: 1,
+                      x: 0,
+                      transition: { duration: 0.6, delay: 0.2 },
+                    }
+                  : {}
+              }
             >
               <h3>Expertise clé</h3>
               <ul className={styles.skillsList}>

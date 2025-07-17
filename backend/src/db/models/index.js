@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.js')[env];
+const env = process.env.NODE_ENV || "development";
+const config = require("../config/config.js")[env];
 const db = {};
 
 let sequelize;
@@ -14,15 +14,15 @@ if (config.use_env_variable) {
     config.database,
     config.username,
     config.password,
-    config
+    config,
   );
 }
 
 // Import models
-const User = require('./User')(sequelize, Sequelize.DataTypes);
-const Project = require('./Project')(sequelize, Sequelize.DataTypes);
-const Skill = require('./Skill')(sequelize, Sequelize.DataTypes);
-const BlogPost = require('./BlogPost')(sequelize, Sequelize.DataTypes);
+const User = require("./User")(sequelize, Sequelize.DataTypes);
+const Project = require("./Project")(sequelize, Sequelize.DataTypes);
+const Skill = require("./Skill")(sequelize, Sequelize.DataTypes);
+const BlogPost = require("./BlogPost")(sequelize, Sequelize.DataTypes);
 
 // Add models to db object
 db.User = User;
@@ -31,7 +31,7 @@ db.Skill = Skill;
 db.BlogPost = BlogPost;
 
 // Set up model associations
-Object.keys(db).forEach(modelName => {
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }

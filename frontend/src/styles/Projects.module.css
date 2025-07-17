@@ -16,7 +16,11 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -199,21 +203,21 @@
   .title {
     font-size: 2.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.1rem;
   }
-  
+
   .filters {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .filterButton {
     width: 100%;
     max-width: 250px;
   }
-  
+
   .projectsGrid {
     grid-template-columns: 1fr;
     max-width: 600px;
@@ -239,13 +243,18 @@
 }
 
 .loadingCard::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
   animation: shimmer 1.5s infinite;
   transform: translateX(-100%);
 }

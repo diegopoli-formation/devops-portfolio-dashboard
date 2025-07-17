@@ -20,7 +20,11 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -244,7 +248,9 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-sm);
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   background-color: #fff;
   color: var(--color-text);
 }
@@ -316,7 +322,11 @@ textarea.formControl {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 70%
+  );
   top: -150px;
   right: -150px;
 }
@@ -325,7 +335,11 @@ textarea.formControl {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(139, 92, 246, 0) 70%
+  );
   bottom: -100px;
   left: -100px;
 }
@@ -335,7 +349,7 @@ textarea.formControl {
   .container {
     gap: 2rem;
   }
-  
+
   .contactInfo,
   .contactForm {
     padding: 2rem;
@@ -346,19 +360,19 @@ textarea.formControl {
   .container {
     grid-template-columns: 1fr;
   }
-  
+
   .title {
     font-size: 2.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.1rem;
   }
-  
+
   .contactInfo {
     order: 2;
   }
-  
+
   .contactForm {
     order: 1;
   }
@@ -368,21 +382,21 @@ textarea.formControl {
   .header {
     margin-bottom: 2.5rem;
   }
-  
+
   .title {
     font-size: 2rem;
   }
-  
+
   .contactInfo,
   .contactForm {
     padding: 1.5rem;
   }
-  
+
   .contactItem {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .socialLinks {
     justify-content: center;
   }

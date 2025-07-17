@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // Import des composants
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Dashboard from './pages/Dashboard';
-import Contact from './pages/Contact';
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Dashboard from "./pages/Dashboard";
+import Contact from "./pages/Contact";
 
 // Import des styles
-import './styles/transitions.css';
-import './styles/global.css';
+import "./styles/transitions.css";
+import "./styles/global.css";
 
 // Composant pour gérer les animations de transition entre les pages
 const AnimatedRoutes: React.FC = () => {
@@ -25,9 +30,9 @@ const AnimatedRoutes: React.FC = () => {
 
   return (
     <TransitionGroup component={null}>
-      <CSSTransition 
-        key={location.key} 
-        classNames="fade" 
+      <CSSTransition
+        key={location.key}
+        classNames="fade"
         timeout={300}
         unmountOnExit
       >

@@ -6,7 +6,9 @@
 .fade-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 600ms ease, transform 600ms ease;
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
 }
 
 .fade-exit {

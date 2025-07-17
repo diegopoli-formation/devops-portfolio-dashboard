@@ -19,9 +19,12 @@
   --color-info: #3b82f6;
 
   /* Typographie */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono:
+    "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
   /* Espacements */
   --spacing-xxs: 0.25rem;
   --spacing-xs: 0.5rem;
@@ -43,9 +46,12 @@
 
   /* Ombres */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 
@@ -66,7 +72,9 @@
 }
 
 /* Réinitialisation des styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -91,19 +99,36 @@ body {
 }
 
 /* Typographie */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 var(--spacing-md) 0;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-secondary);
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
 
 p {
   margin: 0 0 var(--spacing-md) 0;
@@ -121,7 +146,8 @@ a:hover {
   text-decoration: underline;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
@@ -137,15 +163,33 @@ img, video {
 }
 
 /* Classes utilitaires */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-muted { color: var(--color-text-light); }
-.bg-light { background-color: var(--color-bg-secondary); }
-.rounded { border-radius: var(--border-radius); }
-.shadow { box-shadow: var(--shadow); }
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-muted {
+  color: var(--color-text-light);
+}
+.bg-light {
+  background-color: var(--color-bg-secondary);
+}
+.rounded {
+  border-radius: var(--border-radius);
+}
+.shadow {
+  box-shadow: var(--shadow);
+}
 
 /* Layout de l'application */
 .app {
@@ -259,7 +303,9 @@ img, video {
 }
 
 /* Utilitaires d'affichage */
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -274,16 +320,20 @@ img, video {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -299,42 +349,64 @@ img, video {
 
 /* Media queries pour le responsive */
 @media (max-width: 1024px) {
-  html { font-size: 95%; }
-  
+  html {
+    font-size: 95%;
+  }
+
   .main-content {
     padding-top: 4.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  html { font-size: 90%; }
-  
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
-  h4 { font-size: 1.25rem; }
-  h5 { font-size: 1.1rem; }
-  
+  html {
+    font-size: 90%;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-size: 1.1rem;
+  }
+
   .main-content {
     padding-top: 4rem;
   }
-  
+
   .page-content {
     padding: var(--spacing-lg) 0;
   }
 }
 
 @media (max-width: 480px) {
-  html { font-size: 87.5%; }
-  
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.625rem; }
-  h3 { font-size: 1.375rem; }
-  
+  html {
+    font-size: 87.5%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.625rem;
+  }
+  h3 {
+    font-size: 1.375rem;
+  }
+
   .main-content {
     padding-top: 3.75rem;
   }
-  
+
   .btn {
     padding: 0.5rem 1rem;
     font-size: 0.9375rem;
