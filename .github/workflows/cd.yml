@@ -34,29 +34,27 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:${{ env.IMAGE_TAG }} .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:${{ env.IMAGE_TAG }}
-
-      # Build & push backend
-      - name: Build and push backend
-        working-directory: ./backend
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-backend:${{ env.IMAGE_TAG }} .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-backend:${{ env.IMAGE_TAG }}
+          # Also update the latest tag
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:${{ env.IMAGE_TAG }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:latest
 
       - name: Deploy to production server
         run: |
-          echo "Déploiement en production..."
-          # Exemple : connexion SSH + déploiement
+          echo "Deploying to production..."
+          # Example: SSH connection + deployment
           # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} <<EOF
-          #   cd /chemin/projet
-          #   docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-frontend:${{ env.IMAGE_TAG }}
-          #   docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}-backend:${{ env.IMAGE_TAG }}
+          #   cd /path/to/project
+          #   docker-compose pull
           #   docker-compose up -d
           # EOF
 
-      - name: Notify success
-        if: success()
-        run: echo "✅ Déploiement réussi !"
-
-      - name: Notify failure
-        if: failure()
-        run: echo "❌ Échec du déploiement."
+      - name: Notify deployment status
+        if: always()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: ${{ job.status == 'success' && '#36a64f' || '#ff0000' }}
+          SLACK_TITLE: 'Deployment ${{ job.status == 'success' && 'succeeded' || 'failed' }} - ${{ github.repository }}'
+          SLACK_MESSAGE: 'Deployment of branch `${{ github.ref }}` completed with status *${{ job.status }}*.'
+          SLACK_USERNAME: GitHub Actions
+          SLACK_ICON: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png

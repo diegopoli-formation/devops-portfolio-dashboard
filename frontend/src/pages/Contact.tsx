@@ -46,63 +46,49 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Validation simple
+    // Simple validation
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({
         type: "error",
-        message: "Veuillez remplir tous les champs obligatoires.",
+        message: "Please fill in all required fields.",
       });
       return;
     }
 
-    // Validation d'email simple
+    // Simple email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setFormStatus({
         type: "error",
-        message: "Veuillez entrer une adresse email valide.",
+        message: "Please enter a valid email address.",
       });
       return;
     }
 
-    setFormStatus({ type: "loading", message: "Envoi en cours..." });
+    setFormStatus({ type: "loading", message: "Sending message..." });
 
     try {
-      // Ici, vous pouvez ajouter l'appel à votre API ou service d'email
-      // Par exemple, avec fetch ou axios
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
-
-      // Simulation d'un délai pour le chargement
+      // Simulate API call delay
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      // Simuler une réponse réussie
-      // if (response.ok) {
+      // Simulate successful form submission
       setFormStatus({
         type: "success",
-        message:
-          "Votre message a été envoyé avec succès ! Je vous répondrai dès que possible.",
+        message: "Thank you for your message! I'll get back to you as soon as possible.",
       });
 
-      // Réinitialiser le formulaire après un envoi réussi
+      // Reset form after successful submission
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
-      // } else {
-      //   throw new Error('Erreur lors de l\'envoi du message');
-      // }
     } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+      console.error("Error submitting the form:", error);
       setFormStatus({
         type: "error",
-        message:
-          "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer plus tard.",
+        message: "An error occurred while sending the message. Please try again later.",
       });
     }
   };
